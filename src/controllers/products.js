@@ -26,10 +26,9 @@ class ProductsController {
   };
 
   saveProduct = async (req, res) => {
-    console.log(req);
     try {
       const product = req.body;
-      const savedProduct = await this.products.saveProduct(req.body);
+      const savedProduct = await this.products.saveProduct(product);
       res.status(201).json(savedProduct);
     } catch (err) {
       console.log(err);
