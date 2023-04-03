@@ -1,8 +1,8 @@
 const fs = require("fs");
 
 class DAOFile {
-  constructor(fileName) {
-    this.path = `./src/data/${fileName}.json`;
+  constructor(collection, schema) {
+    this.path = `./src/data/${collection}.json`;
   }
 
   async getItems() {
@@ -10,13 +10,13 @@ class DAOFile {
     return JSON.parse(data);
   }
 
-  async getItemById(id) {
+  async getById(id) {
     const allItems = await this.getItems();
     const item = allItems.find((item) => item.id === id);
     return item;
   }
 
-  async getItemId() {
+  async generateId() {
     let id;
     const allItems = await this.getItems();
     if (!allItems.length) {
@@ -28,11 +28,11 @@ class DAOFile {
     return id;
   }
 
-  async saveItem(item) {
-    if (item) {
-      const id = await this.getItemId();
+  async saveItem(product) {
+    if (product) {
+      const id = await this.generateId();
       const itemToUpload = {
-        ...item,
+        ...product,
         id,
         timestamp: Date.now(),
       };
@@ -44,7 +44,7 @@ class DAOFile {
           return itemToUpload;
         })
         .catch((err) => {
-          console.log(`el item no se ha podido guardar, ${err}`);
+          console.log(`el producto no se ha podido guardar, ${err}`);
         });
     }
   }
@@ -61,9 +61,7 @@ class DAOFile {
         .then((res) => {
           return { ...itemToUpdate, ...item };
         })
-        .catch((error) =>
-          console.log("no se ha podido actualizar el item", error)
-        );
+        .catch((error) => console.log("no se ha podido actualizar", error));
     }
   }
 
@@ -79,7 +77,7 @@ class DAOFile {
           return itemToDelete;
         })
         .catch((error) => {
-          console.log(`el item no se ha podido eliminar, ${error}`);
+          console.log(`no se ha podido eliminar, ${error}`);
         });
     }
   }
