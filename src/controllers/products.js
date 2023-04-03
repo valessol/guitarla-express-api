@@ -1,8 +1,17 @@
-const ProductsServices = require("../services/products");
+const productInstance = require("../services/products.js");
 
 class ProductsController {
+  static instance;
+
   constructor() {
-    this.products = new ProductsServices();
+    this.products = productInstance;
+  }
+
+  static getInstance() {
+    if (!this.instance) {
+      this.instance = new ProductsController();
+    }
+    return this.instance;
   }
 
   getProducts = async (req, res) => {
@@ -57,4 +66,4 @@ class ProductsController {
   };
 }
 
-module.exports = new ProductsController();
+module.exports = ProductsController.getInstance();

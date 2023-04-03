@@ -1,8 +1,8 @@
-const BlogServices = require("../services/blog.js");
+const blogInstance = require("../services/blog.js");
 
 class BlogController {
   constructor() {
-    this.blog = new BlogServices();
+    this.blog = blogInstance;
   }
 
   getPosts = async (req, res) => {

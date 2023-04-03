@@ -1,13 +1,41 @@
-const ProductsDAOFactory = require("../persistence/productsDAOFactory");
+const DAOFactory = require("../models/DAOs/DAOFactory.js");
+const productsSchema = require("../models/schemas/products.js");
+const Product = require("../models/model/Product.js");
 
 class ProductsServices {
+  static instance;
+
   constructor() {
-    this.services = ProductsDAOFactory.get();
+    this.services = DAOFactory.get("products", productsSchema);
+  }
+
+  static getInstance() {
+    if (!this.instance) {
+      this.instance = new ProductsServices();
+    }
+    return this.instance;
+  }
+
+  static validateProduct(product) {
+    try {
+      Product.validate(product);
+      return true;
+    } catch (error) {
+      throw new Error("Producto no válido");
+    }
+  }
+
+  static setDefaultAttr(product) {
+    let newProduct = { ...product, timestamp: new Date() };
+    if (!newProduct.url)
+      newProduct.url = `${config.CLOUDINARY_BASE_URL}/Avatars/img_ckql0i.png`;
+
+    return newProduct;
   }
 
   getProducts = async () => {
     try {
-      const products = await this.services.getProducts();
+      const products = await this.services.getItems();
       return products;
     } catch (err) {
       console.log(err);
@@ -16,7 +44,7 @@ class ProductsServices {
 
   getProductById = async (_id) => {
     try {
-      const product = await this.services.getProductById(_id);
+      const product = await this.services.getById(_id);
       return product;
     } catch (err) {
       console.log(err);
@@ -25,8 +53,13 @@ class ProductsServices {
 
   saveProduct = async (product) => {
     try {
-      const savedProduct = await this.services.saveProduct(product);
-      return savedProduct;
+      const options = { title: product.title, timestamp: product.timestamp };
+      const newProduct = ProductsServices.setDefaultAttr(product);
+
+      if (!ProductsServices.validatePost(newProduct)) {
+        return new Error("formato de post inválido");
+      }
+      return await this.services.saveItem(newProduct, options);
     } catch (err) {
       console.log(err);
     }
@@ -34,7 +67,7 @@ class ProductsServices {
 
   updateProduct = async (_id, product) => {
     try {
-      const updatedProduct = await this.services.updateProduct(_id, product);
+      const updatedProduct = await this.services.updateItem(_id, product);
       return updatedProduct;
     } catch (err) {
       console.log(err);
@@ -43,7 +76,7 @@ class ProductsServices {
 
   deleteProduct = async (_id) => {
     try {
-      const product = await this.services.deleteProduct(_id);
+      const product = await this.services.deleteItem(_id);
       return product;
     } catch (err) {
       console.log(err);
@@ -51,4 +84,4 @@ class ProductsServices {
   };
 }
 
-module.exports = ProductsServices;
+module.exports = ProductsServices.getInstance();

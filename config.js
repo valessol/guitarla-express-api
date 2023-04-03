@@ -14,4 +14,5 @@ module.exports = {
   PORT: process.env.PORT || 8080,
   MONGO_DATA_BASE_URL: process.env.MONGO_DATA_BASE_URL,
   PERSISTENCE: process.env.PERSISTENCE || "file",
+  CLOUDINARY_BASE_URL: process.env.CLOUDINARY_BASE_URL,
 };
