@@ -4,6 +4,7 @@ const schema = {
   title: String,
   description: String,
   price: String,
+  stock: Number,
   url: String,
   timestamp: String,
 };

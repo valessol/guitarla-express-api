@@ -56,7 +56,7 @@ class ProductsServices {
       const options = { title: product.title, timestamp: product.timestamp };
       const newProduct = ProductsServices.setDefaultAttr(product);
 
-      if (!ProductsServices.validatePost(newProduct)) {
+      if (!ProductsServices.validateProduct(newProduct)) {
         return new Error("formato de post inválido");
       }
       return await this.services.saveItem(newProduct, options);

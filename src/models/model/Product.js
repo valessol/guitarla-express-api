@@ -11,6 +11,7 @@ class Product {
       description: Joi.string().required(),
       price: Joi.number().required(),
       url: Joi.string(),
+      stock: Joi.number().required(),
       timestamp: Joi.date(),
     });
 

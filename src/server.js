@@ -10,6 +10,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/api/products", productsRouter);
 app.use("/api/blog", blogRouter);
+app.use("/api/cart", cartRouter);
 
 const PORT = config.PORT;
 app.listen(PORT, () => {

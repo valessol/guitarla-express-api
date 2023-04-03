@@ -34,6 +34,7 @@ class DAOFile {
       const itemToUpload = {
         ...product,
         id,
+        _id: id,
         timestamp: Date.now(),
       };
       const allItems = await this.getItems();
