@@ -1,4 +1,4 @@
-const cartInstance = require("../services/cart.js");
+const cartInstance = require("../services/carts.js");
 const productsInstance = require("../services/products.js");
 
 class CartsController {
