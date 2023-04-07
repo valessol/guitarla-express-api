@@ -13,6 +13,7 @@ class DAOFile {
   async getById(id) {
     const allItems = await this.getItems();
     const item = allItems.find((item) => item.id === id);
+    if (!item) return {};
     return item;
   }
 
