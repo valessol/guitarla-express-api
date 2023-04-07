@@ -26,11 +26,11 @@ class ProductsController {
   getProductById = async (req, res) => {
     try {
       const { id } = req.params;
-      const product = await this.products.getProductById(id);
-      console.log(product);
+      const product = await this.products.getProductById(Number(id));
       res.status(200).json(product);
     } catch (err) {
-      console.log(err);
+      //console.log(err);
+      res.status(404).json(err);
     }
   };
 
@@ -48,7 +48,10 @@ class ProductsController {
     try {
       const { id } = req.params;
       const product = req.body;
-      const updatedProduct = await this.products.updateProduct(id, product);
+      const updatedProduct = await this.products.updateProduct(
+        Number(id),
+        product
+      );
       res.status(200).json(updatedProduct);
     } catch (err) {
       console.log(err);
@@ -58,7 +61,7 @@ class ProductsController {
   deleteProduct = async (req, res) => {
     try {
       const { id } = req.params;
-      const product = await this.products.deleteProduct(id);
+      const product = await this.products.deleteProduct(Number(id));
       res.status(200).json(product);
     } catch (err) {
       console.log(err);
