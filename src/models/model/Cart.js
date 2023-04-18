@@ -10,6 +10,9 @@ class Cart {
       products: Joi.array({
         _id: Joi.string().required(),
         quantity: Joi.number().required(),
+        title: Joi.string().required(),
+        imageUrl: Joi.string(),
+        price: Joi.number().required(),
       }),
       timestamp: Joi.date(),
     });
