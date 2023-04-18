@@ -17,17 +17,14 @@ class DAOFile {
     return item;
   }
 
-  async generateId() {
-    let id;
-    const allItems = await this.getItems();
-    if (!allItems.length) {
-      id = 1;
-    } else {
-      const ids = allItems.map((item) => item.id);
-      id = Math.max(...ids) + 1;
+  generateId = () => {
+    try {
+      const id = crypto.randomUUID();
+      return id;
+    } catch (err) {
+      throw new Error(err);
     }
-    return id;
-  }
+  };
 
   async saveItem(product) {
     if (product) {

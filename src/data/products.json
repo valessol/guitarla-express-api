@@ -1,6 +1,6 @@
 [
   {
-    "id": 1,
+    "id": "Vai",
     "title": "Vai",
     "price": 359,
     "description": "Ut malesuada vitae neque sit amet congue. Suspendisse potenti. Mauris …",
@@ -8,7 +8,7 @@
     "timestamp": 1680285084762
   },
   {
-    "id": 2,
+    "id": "Clapton",
     "title": "Clapton",
     "price": 359,
     "description": "Ut malesuada vitae neque sit amet congue. Suspendisse potenti. Mauris …",
@@ -16,7 +16,7 @@
     "timestamp": 1680285084762
   },
   {
-    "id": 3,
+    "id": "Page",
     "title": "Page",
     "price": 359,
     "description": "Ut malesuada vitae neque sit amet congue. Suspendisse potenti. Mauris …",
@@ -24,7 +24,7 @@
     "timestamp": 1680285084762
   },
   {
-    "id": 4,
+    "id": "Beck",
     "title": "Beck",
     "price": 359,
     "description": "Ut malesuada vitae neque sit amet congue. Suspendisse potenti. Mauris …",
@@ -32,7 +32,7 @@
     "timestamp": 1680285084762
   },
   {
-    "id": 5,
+    "id": "Townshend",
     "title": "Townshend",
     "price": 359,
     "description": "Ut malesuada vitae neque sit amet congue. Suspendisse potenti. Mauris …",
@@ -40,7 +40,7 @@
     "timestamp": 1680285084762
   },
   {
-    "id": 6,
+    "id": "Morello",
     "title": "Morello",
     "price": 359,
     "description": "Ut malesuada vitae neque sit amet congue. Suspendisse potenti. Mauris …",
@@ -48,7 +48,7 @@
     "timestamp": 1680285084762
   },
   {
-    "id": 7,
+    "id": "Borland",
     "title": "Borland",
     "price": 359,
     "description": "Ut malesuada vitae neque sit amet congue. Suspendisse potenti. Mauris …",
@@ -56,7 +56,7 @@
     "timestamp": 1680285084762
   },
   {
-    "id": 8,
+    "id": "Cobain",
     "title": "Cobain",
     "price": 359,
     "description": "Ut malesuada vitae neque sit amet congue. Suspendisse potenti. Mauris …",
@@ -64,7 +64,7 @@
     "timestamp": 1680285084762
   },
   {
-    "id": 9,
+    "id": "Dale",
     "title": "Dale",
     "price": 359,
     "description": "Ut malesuada vitae neque sit amet congue. Suspendisse potenti. Mauris …",
@@ -72,7 +72,7 @@
     "timestamp": 1680285084762
   },
   {
-    "id": 10,
+    "id": "Young",
     "title": "Young",
     "price": 359,
     "description": "Ut malesuada vitae neque sit amet congue. Suspendisse potenti. Mauris …",
@@ -80,7 +80,7 @@
     "timestamp": 1680285084762
   },
   {
-    "id": 11,
+    "id": "Keith",
     "title": "Keith",
     "price": 359,
     "description": "Ut malesuada vitae neque sit amet congue. Suspendisse potenti. Mauris …",
@@ -88,7 +88,7 @@
     "timestamp": 1680285084762
   },
   {
-    "id": 12,
+    "id": "Blackmore",
     "title": "Blackmore",
     "price": 359,
     "description": "Ut malesuada vitae neque sit amet congue. Suspendisse potenti. Mauris …",

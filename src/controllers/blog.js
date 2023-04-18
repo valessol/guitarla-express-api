@@ -17,8 +17,7 @@ class BlogController {
   getPostById = async (req, res) => {
     try {
       const { id } = req.params;
-      const post = await this.blog.getPostById(Number(id));
-      console.log(post);
+      const post = await this.blog.getPostById(id);
       res.status(200).json(post);
     } catch (err) {
       console.log(err);
@@ -39,7 +38,7 @@ class BlogController {
     try {
       const { id } = req.params;
       const post = req.body;
-      const updatedPost = await this.blog.updatePost(Number(id), post);
+      const updatedPost = await this.blog.updatePost(id, post);
       res.status(200).json(updatedPost);
     } catch (err) {
       console.log(err);
@@ -49,7 +48,7 @@ class BlogController {
   deletePost = async (req, res) => {
     try {
       const { id } = req.params;
-      const post = await this.blog.deletePost(Number(id));
+      const post = await this.blog.deletePost(id);
       res.status(200).json(post);
     } catch (err) {
       console.log(err);
